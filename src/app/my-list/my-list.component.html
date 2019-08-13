@@ -1,0 +1,24 @@
+<cdk-virtual-scroll-viewport [itemSize]="20">
+    <table>
+      <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Price ($)</th>
+            <th>Availability</th>
+        </tr>   
+      </thead>
+      <tbody>
+        <tr *cdkVirtualFor="let item of data; let i = index">
+            <td class="col-size-sm">{{i+1}}/{{data.length}}</td>
+            <td class="col-size-lg">{{item.id}}</td>
+            <td class="col-size-lg">{{item.name}}</td>
+            <td>{{item.type}}</td>
+            <td style="text-align: center">{{item.price | number : '1.0-2' }}</td>
+            <td style="text-align: center">{{item.is_available ? 'Yes' : 'No' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </cdk-virtual-scroll-viewport>
